@@ -78,16 +78,16 @@ fresh?
 	C.	Jack Ma
 	D.	Donald Trump
   Answer: 
-14.
-	A.
-	B.
-	C.
-	D.
+14. It is The most prestigious award in the field of music, same the Oscar: 
+	A. 	ACM Award
+	B. 	Grammy
+	C. 	Billboard
+	D. 	World Peace Music Award
   Answer: 
-15.
-	A.
-	B.
-	C.
-	D.
-  Answer: 
+15. How many planets are there in our solar system?
+	A.	8
+	B.	9
+	C.	10
+	D.	11
+  Answer: A
   
