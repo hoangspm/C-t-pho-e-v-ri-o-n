@@ -3,7 +3,7 @@ def init_ques():
     count_line = 0
     ques_input = []
     temp = {}
-    ques_key = ["ques","a","b","c","d", "answer"]
+    ques_key = ["ques", "a", "b", "c", "d", "answer"]
 
     while True:
         theline = myfile.readline()
@@ -32,4 +32,4 @@ map_input = init_map()
 for i in map_input:
     print(i)
 
-map = Map(map_input,ques_input)
+map = Map(map_input, ques_input)
