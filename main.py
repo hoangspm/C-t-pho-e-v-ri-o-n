@@ -1,3 +1,8 @@
+import random
+
+dx_random = random.randrange(-1, 2, 1)
+dy_random = random.randrange(-1, 2, 1)
+
 def init_ques():
     myfile = open("ques.txt", "r")
     count_line = 0

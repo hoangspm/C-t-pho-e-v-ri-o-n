@@ -3,8 +3,6 @@ class Player:
         self.x = x
         self.y = y
 
-    def print(self):
-        print(self.x, self.y)
 
     def move(self, dx, dy):
         self.x += dx

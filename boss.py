@@ -7,14 +7,10 @@ class Boss:
     def print(self):
         print(self.x, self.y)
 
-    def random_move(self):
-        dx = [-1, 0, 1]
-        dy = [-1, 0, 1]
-
-
-    def move(self, dx, dy):
-        self.x += dx
-        self.y += dy
+    def move(self, dx_random, dy_random):
+        self.x += dx_random
+        if dx_random == 0:
+            self.y += dy_random
 
     def move_to(self, x, y):
         self.x = x
