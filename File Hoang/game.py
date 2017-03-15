@@ -9,8 +9,8 @@ box_image = pygame.image.load("box.png")
 tree_image = pygame.image.load("tree.png")
 gate_image = pygame.image.load("gate.jpg")
 win_image = pygame.image.load("win.jpg")
-COLOR_WHITE = (255,255,255)
-map = Map(20,15)
+COLOR_WHITE = (255, 255, 255)
+map = Map(20, 15)
 square_size = 32
 
 def print():
