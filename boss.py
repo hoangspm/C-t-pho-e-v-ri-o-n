@@ -4,9 +4,6 @@ class Boss:
         self.y = y
         self.mv = moverd
 
-    def print(self):
-        print(self.x, self.y)
-
     def move(self, dx_random, dy_random):
         self.x += dx_random
         if dx_random == 0:
