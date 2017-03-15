@@ -56,7 +56,7 @@ def print_game(map):
 ques_input = init_ques()
 map_input = init_map()
 pygame.init()
-screen = pygame.display.set_mode([800, 600])
+screen = pygame.display.set_mode([400, 400])
 COLOR_BLACK = (0, 0, 0)
 player_image = pygame.image.load("images/police man/police_right.png")
 wall_image = pygame.image.load("images/wall_x.png")
