@@ -4,39 +4,41 @@ from door_win import Door_win
 from ques import Ques
 import random
 
+
 class Map:
-    def __init__(self,map_input,ques_input):
+    def __init__(self, map_input, ques_input):
         self.width = len(map_input)
         self.height = len(map_input[0]) - 1
         self.wall = []
         self.ques = []
         check_ques = [True] * len(ques_input)
         for y in range(self.height):
-            for x in range (self.width):
+            for x in range(self.width):
                 if map_input[y][x] == "P":
-                    self.player = Player(x,y)
+                    self.player = Player(x, y)
                 elif map_input[y][x] == "G":
-                    self.door_win = Door_win(x,y)
+                    self.door_win = Door_win(x, y)
                 elif map_input[y][x] == "#":
-                    self.wall.append(Wall(x,y))
+                    self.wall.append(Wall(x, y))
                 elif map_input[y][x] == "?":
                     while True:
-                        index_ques = random.randint(0,len(ques_input)-1)
+                        index_ques = random.randint(0, len(ques_input)-1)
                         if check_ques[index_ques]:
                             break
-                    self.ques.append(Ques(x,y,ques_input[index_ques]))
+                    self.ques.append(Ques(x, y, ques_input[index_ques]))
                     check_ques[index_ques] = False
-    def in_map(self,x,y):
+
+    def in_map(self, x, y):
         return 0 <= x < self.width and 0 <= y < self.height
 
-    def find_wall(self,x,y):
+    def find_wall(self, x, y):
         for i in range(len(self.wall)):
-            if self.wall[i].match(x,y):
+            if self.wall[i].match(x, y):
                 return i
         return None
 
-    def find_ques(self,x,y):
+    def find_ques(self, x, y):
         for i in range(len(self.ques)):
-            if self.ques[i].match(x,y):
+            if self.ques[i].match(x, y):
                 return i
         return None

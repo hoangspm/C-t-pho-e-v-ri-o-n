@@ -1,5 +1,5 @@
 class Ques:
-    def __init__(self,x,y,ques_input):
+    def __init__(self, x, y, ques_input):
         self.x = x
         self.y = y
         self.ques = ques_input["ques"]
@@ -9,8 +9,8 @@ class Ques:
         self.d = ques_input["c"]
         self.answer = ques_input["answer"]
 
-    def match(self,x,y):
+    def match(self, x, y):
         return self.x == x and self.y == y
 
-    def check_answer(self,answer):
+    def check_answer(self, answer):
         return self.answer == answer.lower()
