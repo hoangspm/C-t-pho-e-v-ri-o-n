@@ -33,6 +33,20 @@ def init_map():
     return map_input
 
 
+def read_ques():
+    if map.find_ques(map.player.x, map.player.y) != None:
+        show = pygame.image.load("images/ques_1.png")
+        screen.blit(show, (0, 0))
+        myfont = pygame.font.SysFont("monospace", 15)
+        label = myfont.render("Some text!", 1, (255, 255, 0))
+        screen.blit(label, (100, 100))
+        pygame.display.flip()
+        while True:
+            ans = input("Your answer?:")
+            if len(ans) != 0:
+                break
+
+
 def print_game(map):
     screen.fill(COLOR_BLACK)
     for y in range(map.height):
@@ -73,6 +87,7 @@ while not done:
             done = True
         elif event.type == pygame.KEYDOWN:
             map.process_input(event.key, screen)
+            read_ques()
 
     print_game(map)
     pygame.display.flip()
