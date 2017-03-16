@@ -64,7 +64,7 @@ class Map:
             self.move_boss()
             self.player.move(dx, dy)
 
-    def process_input(self, request, screen):
+    def process_input(self, request):
         dx, dy = 0, 0
         if request == pygame.K_UP:
             dy = -1

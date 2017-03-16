@@ -36,7 +36,7 @@ def init_map():
 def read_ques():
     if map.find_ques(map.player.x, map.player.y) != None:
         show = pygame.image.load("images/ques_1.png")
-        screen.blit(show, (0, 0))
+        screen.blit(show, (0, 100))
         myfont = pygame.font.SysFont("monospace", 15)
         label = myfont.render("Some text!", 1, (255, 255, 0))
         screen.blit(label, (100, 100))
@@ -51,24 +51,24 @@ def print_game(map):
     screen.fill(COLOR_BLACK)
     for y in range(map.height):
         for x in range(map.width):
-            screen.blit(plattform_image, (x * square_size, y * square_size))
+            screen.blit(plattform_image, (200 + (x * square_size), 100 + (y * square_size)))
             if map.player.match(x, y):
-                screen.blit(player_image, (x*square_size, y*square_size))
+                screen.blit(player_image, (200 + (x * square_size), 100 + (y * square_size)))
             elif map.boss.match(x, y):
-                screen.blit(boss_image, (x * square_size, y*square_size))
+                screen.blit(boss_image, (200 + (x * square_size), 100 + (y * square_size)))
             elif map.door_win.match(x, y):
-                screen.blit(door_win_image, (x * square_size, y*square_size))
+                screen.blit(door_win_image, (200 + (x * square_size), 100 + (y * square_size)))
             elif map.find_wall(x, y) != None:
-                screen.blit(wall_image, (x * square_size, y * square_size))
+                screen.blit(wall_image, (200 + (x * square_size), 100 + (y * square_size)))
             elif map.find_ques(x, y) != None:
-                screen.blit(ques_image, (x * square_size, y * square_size))
+                screen.blit(ques_image, (200 + (x * square_size), 100 + (y * square_size)))
 
     pygame.display.flip()
 
 ques_input = init_ques()
 map_input = init_map()
 pygame.init()
-screen = pygame.display.set_mode([400, 400])
+screen = pygame.display.set_mode([800, 600])
 COLOR_BLACK = (0, 0, 0)
 player_image = pygame.image.load("images/police man/police_right.png")
 boss_image = pygame.image.load("images/prison/prison_right.png")
@@ -86,7 +86,7 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
         elif event.type == pygame.KEYDOWN:
-            map.process_input(event.key, screen)
+            map.process_input(event.key)
             read_ques()
 
     print_game(map)
