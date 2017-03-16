@@ -2,17 +2,12 @@ from map import Map
 import pygame
 import random
 
-dx_random = random.randrange(-1, 2, 1)
-dy_random = random.randrange(-1, 2, 1)
-
-
 def init_ques():
     myfile = open("ques.txt", "r")
     count_line = 0
     ques_input = []
     temp = {}
     ques_key = ["ques", "a", "b", "c", "d", "answer"]
-
     while True:
         theline = myfile.readline()
         if len(theline) == 0:
@@ -25,7 +20,6 @@ def init_ques():
     myfile.close()
     return ques_input
 
-
 def init_map():
     myfile = open("map1.txt", "r")
     map_input = []
@@ -37,7 +31,6 @@ def init_map():
     myfile.close()
     return map_input
 
-
 def print_game(map):
     screen.fill(COLOR_BLACK)
     for y in range(map.height):
@@ -45,6 +38,8 @@ def print_game(map):
             screen.blit(plattform_image, (x * square_size, y * square_size))
             if map.player.match(x, y):
                 screen.blit(player_image, (x*square_size, y*square_size))
+            elif map.boss.match(x, y):
+                screen.blit(boss_image, (x * square_size, y*square_size))
             elif map.door_win.match(x, y):
                 screen.blit(door_win_image, (x * square_size, y*square_size))
             elif map.find_wall(x, y) != None:
@@ -59,6 +54,7 @@ pygame.init()
 screen = pygame.display.set_mode([400, 400])
 COLOR_BLACK = (0, 0, 0)
 player_image = pygame.image.load("images/police man/police_right.png")
+boss_image = pygame.image.load("images/prison/prison_right.png")
 wall_image = pygame.image.load("images/wall_x.png")
 ques_image = pygame.image.load("images/ques.jpg")
 door_win_image = pygame.image.load("images/door_win.png")
@@ -72,5 +68,8 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        elif event.type == pygame.KEYDOWN:
+            map.process_input(event.key)
+
     print_game(map)
     pygame.display.flip()

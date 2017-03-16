@@ -1,13 +1,11 @@
 class Boss:
-    def __init__(self, x, y, moverd):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.mv = moverd
 
-    def move(self, dx_random, dy_random):
-        self.x += dx_random
-        if dx_random == 0:
-            self.y += dy_random
+    def move(self, dx, dy):
+        self.x += dx
+        self.y += dy
 
     def move_to(self, x, y):
         self.x = x
