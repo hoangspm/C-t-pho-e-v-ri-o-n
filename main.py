@@ -1,6 +1,6 @@
 from map import Map
 import pygame
-import random
+
 
 def init_ques():
     myfile = open("ques.txt", "r")
@@ -20,6 +20,7 @@ def init_ques():
     myfile.close()
     return ques_input
 
+
 def init_map():
     myfile = open("map1.txt", "r")
     map_input = []
@@ -30,6 +31,7 @@ def init_map():
         map_input.append(theline)
     myfile.close()
     return map_input
+
 
 def print_game(map):
     screen.fill(COLOR_BLACK)
@@ -46,6 +48,7 @@ def print_game(map):
                 screen.blit(wall_image, (x * square_size, y * square_size))
             elif map.find_ques(x, y) != None:
                 screen.blit(ques_image, (x * square_size, y * square_size))
+
     pygame.display.flip()
 
 ques_input = init_ques()
@@ -61,7 +64,7 @@ door_win_image = pygame.image.load("images/door_win.png")
 plattform_image = pygame.image.load("images/plattform.jpg")
 square_size = 40
 
-map = Map(map_input, ques_input)
+map = Map(map_input, ques_input )
 
 done = False
 while not done:
@@ -69,7 +72,7 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
         elif event.type == pygame.KEYDOWN:
-            map.process_input(event.key)
+            map.process_input(event.key, screen)
 
     print_game(map)
     pygame.display.flip()

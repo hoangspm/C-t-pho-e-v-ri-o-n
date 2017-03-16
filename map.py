@@ -46,23 +46,23 @@ class Map:
     def in_map(self, x, y):
         return 0 <= x < self.width and 0 <= y < self.height and self.find_wall(x,y) == None
 
-    def move_player(self,dx,dy):
-        next_px,next_py = self.player.calc_next(dx,dy)
-        if self.in_map(next_px,next_py):
-            self.player.move(dx,dy)
-
     def move_boss(self):
         while True:
             dx = random.randint(-1, 1)
             dy = random.randint(-1, 2)
-            print(dx, dy)
-            next_bx,next_by = self.boss.calc_next(dx,dy)
-            if self.in_map(next_bx,next_by) and dx*dy == 0:
+            next_bx, next_by = self.boss.calc_next(dx, dy)
+            if self.in_map(next_bx, next_by) and dx * dy == 0:
                 break
-        self.boss.move(dx,dy)
+        self.boss.move(dx, dy)
 
-    def process_input(self,request):
-        dx,dy = 0,0
+    def move_player(self, dx, dy):
+        next_px, next_py = self.player.calc_next(dx, dy)
+        if self.in_map(next_px, next_py):
+            self.move_boss()
+            self.player.move(dx, dy)
+
+    def process_input(self, request, screen):
+        dx, dy = 0, 0
         if request == pygame.K_UP:
             dy = -1
         elif request == pygame.K_DOWN:
@@ -71,5 +71,9 @@ class Map:
             dx = -1
         elif request == pygame.K_RIGHT:
             dx = +1
-        self.move_player(dx,dy)
-        self.move_boss()
+        self.move_player(dx, dy)
+        self.read_ques(screen)
+
+    def read_ques(self, screen_show):
+        if self.find_ques(self.player.x, self.player.y) != None:
+            
