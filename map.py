@@ -74,4 +74,6 @@ class Map:
             dx = -1
         elif request == pygame.K_RIGHT:
             dx = +1
+        else:
+            return
         self.move_player(dx, dy)

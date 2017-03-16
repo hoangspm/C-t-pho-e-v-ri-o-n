@@ -37,9 +37,9 @@ def read_ques():
     if map.find_ques(map.player.x, map.player.y) != None:
         show = pygame.image.load("images/ques_1.png")
         screen.blit(show, (0, 100))
-        myfont = pygame.font.SysFont("monospace", 15)
+        myfont = pygame.font.SysFont("san_serif", 15)
         label = myfont.render("Some text!", 1, (255, 255, 0))
-        screen.blit(label, (100, 100))
+        screen.blit(label, (150, 250))
         pygame.display.flip()
         while True:
             ans = input("Your answer?:")
