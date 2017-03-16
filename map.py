@@ -6,6 +6,9 @@ import random
 
 
 class Map:
+    dx_random = random.randrange(-1, 2, 1)
+    dy_random = random.randrange(-1, 2, 1)
+
     def __init__(self, map_input, ques_input):
         self.width = len(map_input)
         self.height = len(map_input[0]) - 1

@@ -1,8 +1,7 @@
 class Boss:
-    def __init__(self, x, y, moverd):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.mv = moverd
 
     def print(self):
         print(self.x, self.y)
