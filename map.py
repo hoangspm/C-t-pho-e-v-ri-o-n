@@ -77,6 +77,6 @@ class Map:
         self.move_player(dx, dy)
         self.read_ques(screen)
 
-    def read_ques(self, screen_show):
-        if self.find_ques(self.player.x, self.player.y) != None:
+    # def read_ques(self, screen_show):
+    #     if self.find_ques(self.player.x, self.player.y) != None:
             
