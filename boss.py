@@ -3,9 +3,6 @@ class Boss:
         self.x = x
         self.y = y
 
-    def print(self):
-        print(self.x, self.y)
-
     def move(self, dx_random, dy_random):
         self.x += dx_random
         if dx_random == 0:
