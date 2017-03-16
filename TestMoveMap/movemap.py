@@ -11,6 +11,7 @@ DEPTH = 32
 FLAGS = 0
 CAMERA_SLACK = 30
 
+
 def main():
     global cameraX, cameraY
     pygame.init()
@@ -114,6 +115,7 @@ def main():
 
         pygame.display.update()
 
+
 class Camera(object):
     def __init__(self, camera_func, width, height):
         self.camera_func = camera_func
@@ -125,10 +127,12 @@ class Camera(object):
     def update(self, target):
         self.state = self.camera_func(self.state, target.rect)
 
+
 def simple_camera(camera, target_rect):
     l, t, _, _ = target_rect
     _, _, w, h = camera
     return Rect(-l+HALF_WIDTH, -t+HALF_HEIGHT, w, h)
+
 
 def complex_camera(camera, target_rect):
     l, t, _, _ = target_rect
@@ -141,9 +145,11 @@ def complex_camera(camera, target_rect):
     t = min(0, t)                           # stop scrolling at the top
     return Rect(l, t, w, h)
 
+
 class Entity(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
+
 
 class Player(Entity):
     def __init__(self, x, y):
@@ -215,6 +221,7 @@ class Platform(Entity):
 
     def update(self):
         pass
+
 
 class ExitBlock(Platform):
     def __init__(self, x, y):
