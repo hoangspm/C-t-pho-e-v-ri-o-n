@@ -2,6 +2,8 @@ class Boss:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+        self.dx = 0
+        self.dy = 0
 
     def move(self, dx, dy):
         self.x += dx
