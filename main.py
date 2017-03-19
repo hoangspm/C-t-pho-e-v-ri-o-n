@@ -3,6 +3,7 @@ from wall import Wall
 from pygame import Rect
 import pygame
 
+<<<<<<< HEAD
 pygame.init()
 screen = pygame.display.set_mode([800, 600])
 pygame.display.set_caption("Prison Riot")
@@ -57,6 +58,8 @@ def direct_move():
         player_image = player_right_image
     return player_image
 
+=======
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
 def init_ques():
     myfile = open("ques.txt", "r")
@@ -89,6 +92,7 @@ def init_map():
     return map_input
 
 
+<<<<<<< HEAD
 def min(a, b):
     if a > b:
         return b
@@ -99,6 +103,20 @@ def max(a, b):
     if a > b:
         return a
     return b
+=======
+def read_ques():
+    if map.find_ques(map.player.x, map.player.y) != None:
+        show = pygame.image.load("images/ques_1.png")
+        screen.blit(show, (0, 100))
+        myfont = pygame.font.SysFont("san_serif", 15)
+        label = myfont.render("Some text!", 1, (255, 255, 0))
+        screen.blit(label, (150, 250))
+        pygame.display.flip()
+        while True:
+            ans = input("Your answer?:")
+            if len(ans) != 0:
+                break
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
 
 def print_game(map):
@@ -108,13 +126,23 @@ def print_game(map):
             if map.player.match(x, y):
                 screen.blit(player_image, (200 + (x * square_size), 100 + (y * square_size)))
             elif map.boss.match(x, y):
+<<<<<<< HEAD
                 screen.blit(boss_image, (200 + (x * square_size), 100 + (y*square_size)))
             elif map.door_win.match(x, y):
                 screen.blit(door_win_image, (200 + (x * square_size), 100 + (y*square_size)))
+=======
+                screen.blit(boss_image, (200 + (x * square_size), 100 + (y * square_size)))
+            elif map.door_win.match(x, y):
+                screen.blit(door_win_image, (200 + (x * square_size), 100 + (y * square_size)))
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
             elif map.find_wall(x, y) != None:
                 screen.blit(wall_image, (200 + (x * square_size), 100 + (y * square_size)))
             elif map.find_ques(x, y) != None:
                 screen.blit(ques_image, (200 + (x * square_size), 100 + (y * square_size)))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
     pygame.display.flip()
 
 
@@ -281,6 +309,7 @@ def check_won(map):
 
 ques_input = init_ques()
 map_input = init_map()
+<<<<<<< HEAD
 map = Map(map_input, ques_input)
 replay = False
 done = False
@@ -342,3 +371,29 @@ for i in range(5):
                     done = True
                     break
 
+=======
+pygame.init()
+screen = pygame.display.set_mode([800, 600])
+COLOR_BLACK = (0, 0, 0)
+player_image = pygame.image.load("images/police man/police_right.png")
+boss_image = pygame.image.load("images/prison/prison_right.png")
+wall_image = pygame.image.load("images/wall_x.png")
+ques_image = pygame.image.load("images/ques.jpg")
+door_win_image = pygame.image.load("images/door_win.png")
+plattform_image = pygame.image.load("images/plattform.jpg")
+square_size = 40
+
+map = Map(map_input, ques_input )
+
+done = False
+while not done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+        elif event.type == pygame.KEYDOWN:
+            map.process_input(event.key)
+            read_ques()
+
+    print_game(map)
+    pygame.display.flip()
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0

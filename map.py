@@ -52,6 +52,9 @@ class Map:
         return 0 <= x < self.width and 0 <= y < self.height and self.find_wall(x, y) == None
 =======
         return 0 <= x < self.width and 0 <= y < self.height and self.find_wall(x,y) == None
+<<<<<<< HEAD
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
+=======
 >>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
     def move_boss(self):
@@ -71,6 +74,9 @@ class Map:
             if self.in_map(next_bx, next_by) and dx * dy == 0:
                 break
         self.boss.move(dx, dy)
+<<<<<<< HEAD
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
+=======
 >>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
     def move_player(self, dx, dy):
@@ -79,9 +85,12 @@ class Map:
             self.move_boss()
             self.player.move(dx, dy)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     def check_win(self):
         return self.door_win.match(self.player.x, self.player.y)
+=======
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 =======
 >>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
@@ -98,7 +107,11 @@ class Map:
         else:
             return
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.move_player(dx, dy)
+=======
+        self.move_player(dx, dy)
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 =======
         self.move_player(dx, dy)
 >>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
