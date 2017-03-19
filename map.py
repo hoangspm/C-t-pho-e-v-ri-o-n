@@ -8,6 +8,9 @@ import random
 
 
 class Map:
+    dx_random = random.randrange(-1, 2, 1)
+    dy_random = random.randrange(-1, 2, 1)
+
     def __init__(self, map_input, ques_input):
         self.width = len(map_input)
         self.height = len(map_input[0]) - 1
@@ -45,11 +48,16 @@ class Map:
         return None
 
     def in_map(self, x, y):
+<<<<<<< HEAD
         return 0 <= x < self.width and 0 <= y < self.height and self.find_wall(x, y) == None
+=======
+        return 0 <= x < self.width and 0 <= y < self.height and self.find_wall(x,y) == None
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
     def move_boss(self):
         while True:
             dx = random.randint(-1, 1)
+<<<<<<< HEAD
             dy = random.randint(-1, 1)
             next_bx, next_by = self.boss.calc_next(dx, dy)
             if self.in_map(next_bx, next_by) and dx*dy == 0 and self.door_win.match(next_bx, next_by) == False:
@@ -57,15 +65,25 @@ class Map:
         self.boss.move(dx, dy)
         self.boss.dx = dx
         self.boss.dy = dy
+=======
+            dy = random.randint(-1, 2)
+            next_bx, next_by = self.boss.calc_next(dx, dy)
+            if self.in_map(next_bx, next_by) and dx * dy == 0:
+                break
+        self.boss.move(dx, dy)
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
     def move_player(self, dx, dy):
         next_px, next_py = self.player.calc_next(dx, dy)
         if self.in_map(next_px, next_py):
             self.move_boss()
             self.player.move(dx, dy)
+<<<<<<< HEAD
 
     def check_win(self):
         return self.door_win.match(self.player.x, self.player.y)
+=======
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
 
     def process_input(self, request):
         dx, dy = 0, 0
@@ -79,4 +97,8 @@ class Map:
             dx = +1
         else:
             return
+<<<<<<< HEAD
         self.move_player(dx, dy)
+=======
+        self.move_player(dx, dy)
+>>>>>>> 98ee8dd7c75667995495264417ec75379cc88ad0
